@@ -85,18 +85,48 @@ header{
   overflow: hidden;
 }
 
+.menu-button{
+  width: 2.5rem;
+  height: 2.5rem;
+  background-repeat: no-repeat;
+  position: fixed;
+  right: .5rem;
+  top: -2px;
+  transition: all .3s ease-in-out;
+  z-index: 4;
+}
+
+.abrir{
+  background-image: url(assets/iconmonstr-menu-lined.svg);
+}
+
+.cerrar{
+  background-image: url(assets/iconmonstr-x-mark-lined.svg);
+}
+
 .navegacion{
   position: fixed;
   width: 100%;
   display: flex;
+  /* display: none; */
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   padding: .6rem 0;
   background-color: rgba(252, 214, 220, 0.555);
   color: rgb(36, 0, 0);
   z-index: 3;
   transition: padding .3s ease-in-out;
+  gap: 1rem;
 }
 
+.ocultar{
+  display: none;
+}
+
+.mostrar{
+  display: flex;
+}
 
 
 .navegacion li{
@@ -823,14 +853,24 @@ footer p{
 @media screen and (min-width: 768px) and (max-width: 1024px){
   .navegacion{
     justify-content: center;
-    gap: 4rem;
+    gap: 2rem;
   }
 }
 
 /********* escritorio *********/
 
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
+
+  .menu-button{
+    display: none;
+  }
+
+  .ocultar{
+    display: flex;
+    flex-direction: row;
+  }
+
   main{
     max-width: 1400px;
   }

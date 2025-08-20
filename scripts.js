@@ -1,25 +1,35 @@
+//menu
+const menuBtn = document.querySelector('.menu-button');
+const nav = document.querySelector('.navegacion');
+const navItem = document.querySelectorAll('.nav-item')
 
-/* slider galeria */
+menuBtn.addEventListener('click', () => {
+  if (menuBtn.classList.contains('abrir') && nav.classList.contains('ocultar')) {
+    menuBtn.classList.remove('abrir');
+    menuBtn.classList.add('cerrar');
+    nav.classList.remove('ocultar')
+    nav.classList.add('mostrar');
+  } else if (menuBtn.classList.contains('cerrar') && nav.classList.contains('mostrar')) {
+    menuBtn.classList.remove('cerrar');
+    menuBtn.classList.add('abrir');
+    nav.classList.remove('mostrar');
+    nav.classList.add('ocultar');
+  }
+});
 
-// const sliderGaleria = document.querySelector('.slider-galeria');
-// const imagenes = sliderGaleria.querySelectorAll('img');
+navItem.forEach(element => {
+  element.addEventListener('click', () => {
+    setTimeout(() => {
+      menuBtn.classList.remove('cerrar');
+      menuBtn.classList.add('abrir');
+      nav.classList.remove('mostrar');
+      nav.classList.add('ocultar');
+    }, 1000);
+  })
+});
 
-// let index = 1;
+//silider
 
-// setInterval(function(){
-  
-//   let porcentaje = index * -100;
-  
-//   sliderGaleria.style.transform = `translatex(${porcentaje}%)`;
-//   index++;
-
-//   if(index > (imagenes.length - 1)){
-//     index = 1;
-//   }
-
-// }, 4000);
-
-/* slider automatico y manual  */
 
 const sliderGaleria = document.querySelector('.slider-galeria');
 const imagenSlider = document.querySelectorAll('.slider-galeria-img');
@@ -99,11 +109,11 @@ document.querySelector('.slider-galeria-content').addEventListener('click', rese
 
 // scroll de la barra
 
-const nav = document.querySelector('.navegacion');
+// const nav = document.querySelector('.navegacion');
 
 window.addEventListener('scroll', () => {
   let value = window.scrollY;
-  if(value > 280){
+  if(value > 580){
     nav.style.backgroundColor = 'rgb(245, 177, 189)';
     nav.style.padding = '1rem 0';
   } else {
@@ -111,6 +121,7 @@ window.addEventListener('scroll', () => {
     nav.style.padding = '.6rem 0';
   }
 });
+
 
 
 
